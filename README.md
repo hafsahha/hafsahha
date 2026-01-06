@@ -1,11 +1,11 @@
 <div align="center">
-  <img src="./header-banner.svg" alt="Hafsah Banner" width="100%" />
+  <img src="./header.svg" alt="Hafsah Banner" width="100%" />
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="./bio-frame.svg" alt="Hafsah Bio Frame" width="100%" />
+  <img src="./frame.svg" alt="Hafsah Bio Frame" width="100%" />
 </div>
 
 <br/>
