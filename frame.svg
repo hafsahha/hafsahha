@@ -1,0 +1,129 @@
+<svg width="850" height="400" viewBox="0 0 850 400" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap');
+        
+        /* CONTAINER UTAMA DENGAN ANIMASI BORDER */
+        .card {
+          width: 840px;
+          height: 390px;
+          margin: 4px;
+          background: #0d1117; /* GitHub Dark */
+          border-radius: 16px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-family: 'Outfit', sans-serif;
+          color: white;
+          overflow: hidden;
+          box-sizing: border-box;
+          text-align: center;
+        }
+
+        /* LOGIC BORDER GERAK (Pseudo-element) */
+        .card::before {
+          content: "";
+          position: absolute;
+          top: -2px; left: -2px; right: -2px; bottom: -2px;
+          background: linear-gradient(45deg, #ff0055, #00ddff, #6600ff, #ff0055);
+          background-size: 400%;
+          z-index: -1;
+          border-radius: 18px;
+          animation: glowing 20s linear infinite;
+        }
+        
+        /* LAPISAN HITAM AGAR BORDER KELIHATAN TIPIS */
+        .card::after {
+          content: "";
+          position: absolute;
+          inset: 3px; /* Ketebalan border */
+          background: #0d1117;
+          border-radius: 14px;
+          z-index: -1;
+        }
+
+        @keyframes glowing {
+          0% { background-position: 0 0; }
+          50% { background-position: 400% 0; }
+          100% { background-position: 0 0; }
+        }
+
+        .content-wrap {
+          z-index: 10;
+          padding: 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        h1 {
+          font-size: 48px;
+          margin: 0;
+          background: linear-gradient(to right, #fff, #a5f3fc);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 800;
+          letter-spacing: -1px;
+        }
+
+        .badge {
+          background: rgba(56, 189, 248, 0.1);
+          border: 1px solid rgba(56, 189, 248, 0.3);
+          color: #38bdf8;
+          padding: 5px 15px;
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        .bio {
+          font-size: 18px;
+          color: #94a3b8;
+          line-height: 1.6;
+          max-width: 650px;
+        }
+
+        strong { color: #e2e8f0; font-weight: 600; }
+
+        .tech-dots {
+          display: flex;
+          gap: 10px;
+          margin-top: 20px;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        .active { background: #22c55e; box-shadow: 0 0 10px #22c55e; animation: pulse 2s infinite; }
+        
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+      </style>
+
+      <div class="card">
+        <div class="content-wrap">
+          <div class="badge">Open to Work &amp; Collab</div>
+          
+          <h1>Hi, I'm Hafsah Hamidah 👋</h1>
+          
+          <div class="bio">
+             Software Engineer | <strong>AI &amp; Data Enthusiast</strong> | Creative Technologist<br/>
+             <span style="font-size: 16px; opacity: 0.8; display:block; margin-top:10px;">
+               Bridging <strong>Advanced AI</strong>, <strong>Data Engineering</strong>, and Research.<br/>
+               High-achieving CS Student (GPA 3.84) building scalable polyglot systems.
+             </span>
+          </div>
+
+          <div class="tech-dots">
+            <div class="dot active"></div>
+            <div class="dot" style="background:#0ea5e9"></div>
+            <div class="dot" style="background:#a855f7"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>
