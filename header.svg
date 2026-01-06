@@ -1,134 +1,55 @@
-<svg fill="none" viewBox="0 0 800 300" width="800" height="300" xmlns="http://www.w3.org/2000/svg">
-  <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
 
-        /* ANIMATIONS */
-        @keyframes floatUp {
-          0% { transform: translateY(300px); opacity: 0; }
-          50% { opacity: 0.6; }
-          100% { transform: translateY(-50px); opacity: 0; }
-        }
-        @keyframes gridMove {
-          0% { background-position: 0 0; }
-          100% { background-position: 50px 50px; }
-        }
-        @keyframes typing {
-          0% { width: 0 }
-          50% { width: 100% }
-          90% { width: 100% }
-          100% { width: 0 }
-        }
-        @keyframes blink {
-          50% { border-color: transparent }
-        }
-        @keyframes glow {
-          0%, 100% { text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
-          50% { text-shadow: 0 0 25px rgba(56, 189, 248, 0.8), 0 0 10px rgba(168, 85, 247, 0.6); }
-        }
+  <rect width="800" height="300" fill="url(#bgGrad)" />
+  <rect width="800" height="300" fill="url(#grid)">
+    <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="40 40" dur="10s" repeatCount="indefinite" />
+  </rect>
 
-        /* STYLES */
-        .container {
-          width: 100%;
-          height: 300px;
-          background-color: #0d1117; /* GitHub Dark BG */
-          position: relative;
-          overflow: hidden;
-          font-family: 'Fira Code', monospace;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          border-radius: 10px;
-        }
+  <g font-family="monospace" font-size="14" fill="#38bdf8" opacity="0.4">
+    <text x="50" y="300">10101
+      <animate attributeName="y" values="300;0" dur="8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.5;0" dur="8s" repeatCount="indefinite" />
+    </text>
+    <text x="200" y="300">01001
+      <animate attributeName="y" values="300;0" dur="12s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.5;0" dur="12s" repeatCount="indefinite" />
+    </text>
+    <text x="600" y="300">11100
+      <animate attributeName="y" values="300;0" dur="6s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.5;0" dur="6s" repeatCount="indefinite" />
+    </text>
+    <text x="700" y="300">00110
+      <animate attributeName="y" values="300;0" dur="10s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.5;0" dur="10s" repeatCount="indefinite" />
+    </text>
+  </g>
 
-        /* Animated Grid Background */
-        .grid {
-          position: absolute;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background-image: 
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-          background-size: 30px 30px;
-          animation: gridMove 20s linear infinite;
-          z-index: 1;
-        }
+  <g text-anchor="middle" font-family="Segoe UI, sans-serif">
+    <text x="400" y="140" fill="#ffffff" font-size="42" font-weight="bold" filter="url(#glow)">
+      Hafsah Hamidah
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+    </text>
 
-        /* Floating Binary Particles */
-        .binary {
-          position: absolute;
-          color: #38bdf8;
-          font-size: 14px;
-          opacity: 0;
-          z-index: 2;
-        }
-        .b1 { left: 10%; animation: floatUp 7s infinite linear; animation-delay: 0s; }
-        .b2 { left: 25%; animation: floatUp 9s infinite linear; animation-delay: 2s; }
-        .b3 { left: 50%; animation: floatUp 6s infinite linear; animation-delay: 1s; }
-        .b4 { left: 75%; animation: floatUp 8s infinite linear; animation-delay: 3s; }
-        .b5 { left: 90%; animation: floatUp 10s infinite linear; animation-delay: 0.5s; }
-
-        /* Main Content */
-        .content {
-          z-index: 10;
-          text-align: center;
-          background: rgba(13, 17, 23, 0.7); /* Biar teks kebaca jelas */
-          padding: 20px 40px;
-          border-radius: 15px;
-          border: 1px solid rgba(255,255,255,0.1);
-          backdrop-filter: blur(3px);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .name {
-          font-size: 42px;
-          font-weight: 700;
-          margin: 0;
-          background: linear-gradient(to right, #60A5FA, #C084FC);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: glow 3s infinite ease-in-out;
-        }
-
-        .type-wrapper {
-          display: inline-block;
-          margin-top: 10px;
-        }
-
-        .typing-text {
-          font-size: 18px;
-          color: #94a3b8;
-          overflow: hidden;
-          border-right: 3px solid #38bdf8; /* The Cursor */
-          white-space: nowrap;
-          margin: 0 auto;
-          letter-spacing: 2px;
-          animation: 
-            typing 6s steps(40, end) infinite,
-            blink .75s step-end infinite;
-          max-width: fit-content;
-        }
-      </style>
-
-      <div class="container">
-        <div class="grid"></div>
-
-        <div class="binary b1">01101001</div>
-        <div class="binary b2">00101010</div>
-        <div class="binary b3">11010011</div>
-        <div class="binary b4">DATA_FLOW</div>
-        <div class="binary b5">10110001</div>
-
-        <div class="content">
-          <h1 class="name">Hafsah Hamidah</h1>
-          
-          <div class="type-wrapper">
-            <div class="typing-text">Software Engineer &amp; AI Explorer</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </foreignObject>
+    <text x="400" y="180" fill="#94a3b8" font-size="18" letter-spacing="2">
+      SOFTWARE ENGINEER &amp; AI ENTHUSIAST
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="6s" repeatCount="indefinite" />
+    </text>
+    
+    <rect x="630" y="165" width="2" height="20" fill="#38bdf8">
+      <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite" />
+    </rect>
+  </g>
 </svg>
