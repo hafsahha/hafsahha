@@ -72,7 +72,7 @@
 | :--- | :--- | :--- |
 | **Smart Batik Lens** 🚀 | `PyTorch` `Roboflow` `Flutter` | **Deep Learning.** Real-time Batik motif detection using pretrained models on curved surfaces. |
 | **SIGMA-UMKM** 🏢 | `Cassandra` `MongoDB` `Docker` | **NoSQL.** Polyglot persistence platform for monitoring MSMEs (SDGs Case Study). |
-| **AILearn Pancasila** 🤖 | `Next.js` `Gemini API` | **NLP.** AI-powered civic education platform with Generative AI chatbots. |
+| **AILearn Pancasila** 🤖 | `Laravel` `Gemini API` | **NLP.** AI-powered civic education platform with Generative AI chatbots. |
 | **PahamSaham** 📈 | `Airflow` `Docker` `MongoDB` | **Data Eng.** Automated ETL pipeline to scrape and visualize IDX stock data. |
 | **EcoSCha** 🎲 | `React` `Game Logic` | **PKM Winner.** Hybrid web-based game combining social deduction & culture. |
 
